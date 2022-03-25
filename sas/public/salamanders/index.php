@@ -1,46 +1,20 @@
-<?php 
-  require_once('../../private/initialize.php');
-  /* ------------------------------------------------------------------
-    
-  1.)
-  * Use require_once to reference the initialize.php file
-  * Use a relative file path
-
-  2.)
-
-    Enter your code in the salamander array below
-
-    Use this array element to start your array.
-    ['id' => '1', 'salamanderName' => 'Red-Legged Salamander'],
-    
-    Add these salamanders to your array
-    id 2 Pigeon Mountain Salamander
-    id 3 ZigZag Salamander'
-    id 4 Slimy Salamander
-
-    ------------------------------------------------------------------ */
-
+<?php require_once('../../private/initialize.php'); 
 
 $salamanders = [
-  ['id' => '1', 'salamanderName' => 'Red-Legged Salamander'],
-  ['id' => '2', 'salamanderName' => 'Pigeon Mountain Salamander'],
-  ['id' => '3', 'salamanderName' => 'ZigZag Salamander'],
-  ['id' => '4', 'salamanderName' => 'Slimy Salamander'],
+  ['id' => '1',  'salamanderName' => 'Red-Legged Salamander'],
+  ['id' => '2',  'salamanderName' => 'Pigeon Mountain Salamander'],
+  ['id' => '3',  'salamanderName' => 'ZigZag Salamander'],
+  ['id' => '4',  'salamanderName' => 'Slimy Salamander'],
 ];
 
-$page_title = 'Salamanders';
-
-require_once('../../private/shared/salamander-header.php');
-/* ------------------------------------------------------------------
-Use require_once with the SHARED_PATH constant to reference 
-the salamander-header.php file
------------------------------------------------------------------- */
+$page_title = 'Salamanders'; 
+include(SHARED_PATH . '/salamander-header.php'); 
 
 ?>
 
-<h1>Salamanders</h1>
+<h1>Salamanders Main Page</h1>
 
-  <a href="#">Create Salamander</a>
+  <a href="<?= url_for('/salamanders/new.php'); ?>">Create a Salamander</a>
 
 <table>
   <tr>
@@ -53,11 +27,11 @@ the salamander-header.php file
 
       <?php foreach($salamanders as $salamander) { ?>
         <tr>
-          <td><?php echo $salamander['id']; ?></td>
-    	    <td><?php echo $salamander['salamanderName']; ?></td>
-          <td><a class="action" href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
-          <td><a class="action" href="">Edit</a></td>
-          <td><a class="action" href="">Delete</a></td>
+          <td><?= h($salamander['id']); ?></td>
+    	    <td><?= h($salamander['salamanderName']); ?></td>
+          <td><a href="<?= url_for('salamanders/show.php?id=' . h(u($salamander['id']))); ?>">View</a></td>
+          <td><a href="<?= url_for('salamanders/edit.php?id=' . h(u($salamander['id']))); ?>">Edit</a></td>
+          <td><a href="">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>
