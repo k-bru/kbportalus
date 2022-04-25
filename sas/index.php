@@ -1,1 +1,1 @@
-<?php header('Location: https://kbportal.us/sas/public/'); ?>
+<?php header('Location: public/'); ?>

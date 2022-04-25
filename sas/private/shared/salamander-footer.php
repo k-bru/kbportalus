@@ -1,10 +1,9 @@
 <footer>
-  <p>&copy; <?= date('Y'); ?> Southern Appalachian Salamanders</p>
+ &copy; <?php echo date('Y'); ?> Southern Appalachian Salamanders
+ 
 </footer>
 
 </body>
 </html>
-
-<?php
-  db_disconnect($db);
-?>
+  
+<?php db_disconnect($db); ?>

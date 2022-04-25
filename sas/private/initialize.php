@@ -1,5 +1,5 @@
 <?php
-  ob_start();
+
   // Assign file paths to PHP constants
   // __FILE__ returns the current path to this file
   // dirname() returns the path to the parent directory
@@ -8,6 +8,9 @@
   define("PUBLIC_PATH", PROJECT_PATH . '/public');
   define("SHARED_PATH", PRIVATE_PATH . '/shared');
 
+  header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+  header("Pragma: no-cache"); // HTTP 1.0.
+  header("Expires: 0"); // Proxies.
   // Assign the root URL to a PHP constant
   // * Do not need to include the domain
   // * Use same document root as webserver
@@ -24,5 +27,3 @@
   require_once('query_functions.php');
 
   $db = db_connect();
-
-?>
