@@ -48,7 +48,7 @@ if(is_post_request()) {
         </textarea> 
      </p>
  </label>
- <lable for="submit">
+ <label for="submit">
      <p><input type="submit" value="Edit Salamander"></p>
  </label>
 </form>
