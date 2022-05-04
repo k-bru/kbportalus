@@ -12,7 +12,7 @@ im = Image.open(filename)
 w, h = im.size
 
 #Generate string
-imageTag = f"<img src=\"{filename}\", width=\"{w}\", height=\"{h}\", alt=\"\">"
+imageTag = f"<img src=\"{filename}\" width=\"{w}\" height=\"{h}\" alt=\"\">"
 
 #Copy to clipboard
 pyperclip.copy(imageTag)
