@@ -6,12 +6,10 @@ import pyperclip
 Tk().withdraw()
 filename = askopenfilename()
 
-image = filename
-im = Image.open(image)
+im = Image.open(filename)
 
 w, h = im.size
 
-imageTag = f"<img src='{image}', alt='', width='{w}', height='{h}'>"
+imageTag = f"<img src=\"{filename}\", width=\"{w}\", height=\"{h}\", alt=\"\">"
 
 pyperclip.copy(imageTag)
-print("Copied image tag to clipboard")
